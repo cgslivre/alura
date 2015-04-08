@@ -1,6 +1,4 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
 // Secao de definições
 // Servidor
 define('DB_HOST', 'localhost');
@@ -13,7 +11,7 @@ define('DB_BASE', 'alura_php');
 
 // Conexão com o banco de dados
 function getDbConnection(){
-	$connection = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_BASE) or die(mysqli_errno());
+	$connection = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_BASE);
 	return $connection;
 }
 
