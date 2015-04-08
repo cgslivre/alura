@@ -1,19 +1,18 @@
-<html>
-	<head>
-	</head>
-<body>
-	<h1>Cadastro de produto</h1>
-	<form action="adiciona-produto.php" method="post">
+<?php
+// Incluindo o arquivo de funções
+include_once('common.php');
 
-		<label for="nome">Nome do produto:</label>
-		<input type="text" name="nome" value="" />
+// Pegando dados
+$nome = $_POST['nome'];
+$preco = $_POST['preco'];
 
-		<label for="preco">Preço do produto:</label>
-		<input type="text" name="preco" value="" />	
+// Inserindo produto no banco de dados
+$success = insereProduto($nome, $preco);
 
-		<br />
-		<input type="submit" value="Salvar" />
-
-	</form>
-</body>
-</html>
+// Em caso de erro..
+if(!$success){
+	echo 'Erro ao processar operação!';
+}else{
+	echo 'Produto '.$nome.', com valor unitário de R$ '.$preco.' foi inserido com sucesso!';
+}
+?>
